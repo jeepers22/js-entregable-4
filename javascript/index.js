@@ -121,8 +121,12 @@ function eventoLogin() {
 }
 
 function eventoCargaCatalogoPrueba() {
-    domCatalogoPrueba?.addEventListener("click", cargarCatalogoPrueba)
+    domCatalogoPrueba?.addEventListener("click", importarCatalogoJsonLocal)
 }
+
+// function eventoCargaCatalogoPrueba() {
+//     domCatalogoPrueba?.addEventListener("click", cargarCatalogoPrueba)
+// }
 
 function eventoSearch() {
     domSearchForm?.addEventListener("submit", searchProduct)
@@ -153,8 +157,8 @@ function gestionarLogin(event) {
         domSearch.hidden = false
         carrito = importarStorage("carrito") || []
         // Regenero objetos de catálogo con el array de productos importado de LS
-        cargarCatalogoImportado(importarStorage("catalogo") || [])
         mostrarCarrito()
+        cargarCatalogoImportado(importarStorage("catalogo") || [])
         !objectUser.esAdmin() ? mostrarProductos(productos, "client") : mostrarProductos(productos,"admin")
     }
     else {
@@ -196,7 +200,6 @@ productoExistente = (tipoProdAlta, marcaAlta) => productos.some((producto) => pr
 
 function mostrarProductos(listProducts, targetActions) {
     domProductos.innerHTML = ""  // Evita carga repetida de catálogo ante más de un despliegue de de compra
-
     listProducts.forEach((producto) => {
         let domCard = document.createElement("div")
         domCard.className = "producto-card"
@@ -298,6 +301,20 @@ function importarStorage(nombre) {
     return JSON.parse(localStorage.getItem(nombre))
 }
 
+async function importarCatalogoJsonLocal() {
+    try {
+        const response = await fetch("./productos.json")
+        const data = await response.json()
+        const catalogoJSON = [...data]
+        cargarCatalogoImportado(catalogoJSON)
+        mostrarProductos(productos, "client")
+        enviarAStorage(productos, "catalogo")
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
 function cargarCatalogoImportado(productosImportados) {
     productos = []
     productosImportados.forEach(({id, tipoProd, marca, precio, stock, imagen}) => productos.push(new Producto(id, tipoProd, marca, precio, stock, imagen)))
@@ -363,23 +380,23 @@ function vaciarCarrito() {
     localStorage.removeItem("carrito")
 }
 
-function cargarCatalogoPrueba() {
+// function cargarCatalogoPrueba() {
 
-    productos = []
+//     productos = []
 
-    productos.push(new Producto(1, "Paleta", "BlackCrown", 60000, 10, "./img/paleta-black.png"))
-    productos.push(new Producto(2, "Paleta", "ML10", 50000, 5, "./img/paleta-ml10.png"))
-    productos.push(new Producto(3, "Paleta", "Siux", 65000, 15, "./img/paleta-siux.png"))
-    productos.push(new Producto(4, "Paleta", "WingPro", 35000, 4, "./img/paleta-wing.png"))
-    productos.push(new Producto(5, "Bolso", "Adidas", 25000, 10, "./img/bolso-adidas.jpg"))
-    productos.push(new Producto(6, "Mochila", "Nike", 18000, 6, "./img/mochila-nike.jpg"))
-    productos.push(new Producto(7, "Muñequeras", "UnderArmour", 1000, 15, "./img/muniequera-under.jpg"))
-    productos.push(new Producto(8, "Tubo Pelotas", "Adidas", 2000, 8, "./img/pelotas-adidas.jpg"))
-    productos.push(new Producto(9, "Tubo Pelotas", "Prince", 1500, 4, "./img/pelotas-prince.jpg"))
+//     productos.push(new Producto(1, "Paleta", "BlackCrown", 60000, 10, "./img/paleta-black.png"))
+//     productos.push(new Producto(2, "Paleta", "ML10", 50000, 5, "./img/paleta-ml10.png"))
+//     productos.push(new Producto(3, "Paleta", "Siux", 65000, 15, "./img/paleta-siux.png"))
+//     productos.push(new Producto(4, "Paleta", "WingPro", 35000, 4, "./img/paleta-wing.png"))
+//     productos.push(new Producto(5, "Bolso", "Adidas", 25000, 10, "./img/bolso-adidas.jpg"))
+//     productos.push(new Producto(6, "Mochila", "Nike", 18000, 6, "./img/mochila-nike.jpg"))
+//     productos.push(new Producto(7, "Muñequeras", "UnderArmour", 1000, 15, "./img/muniequera-under.jpg"))
+//     productos.push(new Producto(8, "Tubo Pelotas", "Adidas", 2000, 8, "./img/pelotas-adidas.jpg"))
+//     productos.push(new Producto(9, "Tubo Pelotas", "Prince", 1500, 4, "./img/pelotas-prince.jpg"))
 
-    enviarAStorage(productos, "catalogo")
-    mostrarProductos(productos, "client")
-}
+//     enviarAStorage(productos, "catalogo")
+//     mostrarProductos(productos, "client")
+// }
 
 function cerrarSesion() {
     document.location.reload()

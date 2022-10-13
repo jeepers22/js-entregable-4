@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "tipoProd": "Paleta",
+        "marca": "Black Crown",
+        "precio": 60000,
+        "stock": 10,
+        "imagen": "./img/paleta-black.png"
+    },
+    {
+        "id": 2,
+        "tipoProd": "Paleta",
+        "marca": "ML10",
+        "precio": 50000,
+        "stock": 5,
+        "imagen": "./img/paleta-ml10.png"
+    },
+    {
+        "id": 3,
+        "tipoProd": "Paleta",
+        "marca": "Siux",
+        "precio": 65000,
+        "stock": 15,
+        "imagen": "./img/paleta-siux.png"
+    },
+    {
+        "id": 4,
+        "tipoProd": "Paleta",
+        "marca": "WingPro",
+        "precio": 35000,
+        "stock": 4,
+        "imagen": "./img/paleta-wing.png"
+    },
+    {
+        "id": 5,
+        "tipoProd": "Bolso",
+        "marca": "Adidas",
+        "precio": 25000,
+        "stock": 10,
+        "imagen": "./img/bolso-adidas.jpg"
+    },
+    {
+        "id": 6,
+        "tipoProd": "Mochila",
+        "marca": "Nike",
+        "precio": 18000,
+        "stock": 6,
+        "imagen": "./img/mochila-nike.jpg"
+    },
+    {
+        "id": 7,
+        "tipoProd": "Muñequeras",
+        "marca": "UnderArmour",
+        "precio": 1000,
+        "stock": 15,
+        "imagen": "./img/muniequera-under.jpg"
+    },
+    {
+        "id": 8,
+        "tipoProd": "Tubo Pelotas",
+        "marca": "Adidas",
+        "precio": 2000,
+        "stock": 8,
+        "imagen": "./img/pelotas-adidas.jpg"
+    },
+    {
+        "id": 9,
+        "tipoProd": "Tubo Pelotas",
+        "marca": "Prince",
+        "precio": 1500,
+        "stock": 4,
+        "imagen": "./img/pelotas-prince.jpg"
+    }
+]
