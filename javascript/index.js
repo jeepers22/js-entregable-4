@@ -124,10 +124,6 @@ function eventoCargaCatalogoPrueba() {
     domCatalogoPrueba?.addEventListener("click", importarCatalogoJsonLocal)
 }
 
-// function eventoCargaCatalogoPrueba() {
-//     domCatalogoPrueba?.addEventListener("click", cargarCatalogoPrueba)
-// }
-
 function eventoSearch() {
     domSearchForm?.addEventListener("submit", searchProduct)
 }
@@ -379,24 +375,6 @@ function vaciarCarrito() {
     carrito = []
     localStorage.removeItem("carrito")
 }
-
-// function cargarCatalogoPrueba() {
-
-//     productos = []
-
-//     productos.push(new Producto(1, "Paleta", "BlackCrown", 60000, 10, "./img/paleta-black.png"))
-//     productos.push(new Producto(2, "Paleta", "ML10", 50000, 5, "./img/paleta-ml10.png"))
-//     productos.push(new Producto(3, "Paleta", "Siux", 65000, 15, "./img/paleta-siux.png"))
-//     productos.push(new Producto(4, "Paleta", "WingPro", 35000, 4, "./img/paleta-wing.png"))
-//     productos.push(new Producto(5, "Bolso", "Adidas", 25000, 10, "./img/bolso-adidas.jpg"))
-//     productos.push(new Producto(6, "Mochila", "Nike", 18000, 6, "./img/mochila-nike.jpg"))
-//     productos.push(new Producto(7, "Muñequeras", "UnderArmour", 1000, 15, "./img/muniequera-under.jpg"))
-//     productos.push(new Producto(8, "Tubo Pelotas", "Adidas", 2000, 8, "./img/pelotas-adidas.jpg"))
-//     productos.push(new Producto(9, "Tubo Pelotas", "Prince", 1500, 4, "./img/pelotas-prince.jpg"))
-
-//     enviarAStorage(productos, "catalogo")
-//     mostrarProductos(productos, "client")
-// }
 
 function cerrarSesion() {
     document.location.reload()
