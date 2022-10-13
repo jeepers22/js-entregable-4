@@ -124,10 +124,6 @@ function eventoCargaCatalogoPrueba() {
     domCatalogoPrueba?.addEventListener("click", importarCatalogoJsonLocal)
 }
 
-// function eventoCargaCatalogoPrueba() {
-//     domCatalogoPrueba?.addEventListener("click", cargarCatalogoPrueba)
-// }
-
 function eventoSearch() {
     domSearchForm?.addEventListener("submit", searchProduct)
 }
